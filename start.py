@@ -7,7 +7,7 @@ description：开始文件
 """
 import os
 
-from transform_tool.srcml_tool import srcml_program_xml
+from transform_tool.srcml_tool import *
 
 
 def while2for():
@@ -20,7 +20,11 @@ if __name__ == '__main__':
     # save path after transformation
     transform_file = './program_file/xml_data'
     srcml_path = 'D:\software\srcML\srcml.exe'
-    #
-    pre_path = os.path.join(program_path, 'for_text.c')
-    xml_path = os.path.join(transform_file, 'for')
-    srcml_program_xml(pre_path, xml_path)
+    # 1.将 for.c 使用 scrML变化为for.xml
+    pre_path = os.path.join(program_path, 'for_text1.c')
+    xml_path = os.path.join(transform_file, 'for.xml')
+    # srcml_program_xml(pre_path, xml_path)
+    # srcml_xml_program(xml_path, pre_path)
+
+    #  2.将for.xml通过规则变换，变化为while.xml
+
