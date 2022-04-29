@@ -138,18 +138,21 @@ def get_number(xml_path):
     return count(e)
 
 
-def program_transform(program_path):
-    e = init_parse(program_path)
+def program_transform(input_path, output_path):
+    e = init_parse(input_path)
     trans_tree(e)
-    save_tree_to_file(doc, './style/style.xml')
+    save_tree_to_file(doc, output_path)
+
+
+def main():
+    input_path = os.path.join(transform_file, 'for.xml')
+    output_path = os.path.join(program_path, 'while.c')
+    program_transform(input_path, output_path)
 
 
 if __name__ == '__main__':
-    ns = {'src': 'http://www.srcML.org/srcML/src'}
-    doc = None
-    # Tag, indicating that for can be converted
-    flag = False
     parser = etree.HTMLParser(encoding='utf-8')
-    input_path = 'C://Users//28673//Desktop//srcML_test//for.c'
-    output_path = 'C://Users//28673//Desktop//srcML_test//while.c'
-    program_transform(input_path)
+    program_path = './program_file/code_data'
+    # save path after transformation
+    transform_file = './program_file/xml_data'
+    main()
