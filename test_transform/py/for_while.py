@@ -58,6 +58,13 @@ def save_tree_to_file(tree, file):
 
 # start to transform
 def trans_tree(e, ignore_list=[], instances=None):
+    """
+    start to transform
+    :param e:
+    :param ignore_list:
+    :param instances:
+    :return:
+    """
     # Tag, indicating that for can be converted
     global flag
     flag = False
@@ -144,15 +151,15 @@ def program_transform(input_path, output_path):
     save_tree_to_file(doc, output_path)
 
 
-def main():
-    input_path = os.path.join(transform_file, 'for.xml')
-    output_path = os.path.join(program_path, 'while.c')
-    program_transform(input_path, output_path)
-
-
-if __name__ == '__main__':
-    parser = etree.HTMLParser(encoding='utf-8')
-    program_path = './program_file/code_data'
-    # save path after transformation
-    transform_file = './program_file/xml_data'
-    main()
+# def main():
+#     input_path = os.path.join(transform_file, 'for.xml')
+#     output_path = os.path.join(transform_file, 'while.xml')
+#     program_transform(input_path, output_path)
+#
+#
+# if __name__ == '__main__':
+#     parser = etree.HTMLParser(encoding='utf-8')
+#     program_path = '../../program_file/code_data'
+#     # save path after transformation
+#     transform_file = '../../program_file/xml_data'
+#     main()

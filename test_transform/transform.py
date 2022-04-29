@@ -81,7 +81,6 @@ def get_style12(path_program='', author_name = ''):
 
 # compare program to target author and complete the transformation
 def transform_P_to_auth(list_a, path_program):
-
     # the program's all style
     list_p = []
     # the program's main style
