@@ -21,7 +21,7 @@ sys.path.append(cur_path)
 
 flag = True  # indicates whether the shell command runs successfully
 program_style_flag = 'c'  # program's style c++/java/c
-srcml_path = 'D:\\software\\srcML\\srcml.exe'
+srcml_path = 'E:\\srcML\\srcml.exe'
 
 
 # express shell command

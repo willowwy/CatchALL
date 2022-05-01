@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# author:yejunyao
+# author:chenghao
 # datetime:2022/4/28 16:10
 
 """
@@ -17,10 +17,10 @@ def while2for():
 
 if __name__ == '__main__':
     # author program to be transformed
-    program_path = './program_file/code_data'
+    program_path = 'C:\\Users\\28673\\Desktop\\gittest\\program_file\\code_data'
     # save path after transformation
-    transform_file = './program_file/xml_data'
-    # the path of srcml.exe
+    transform_file = 'C:\\Users\\28673\\Desktop\\gittest\\program_file\\xml_data'
+    # the path of your local srcml.exe
     srcml_path = 'E:\srcML\srcml.exe' 
     # 1.将 for.c 使用 scrML变化为for.xml
     pre_path = os.path.join(program_path, 'for_text.c')
