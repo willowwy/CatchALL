@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.srcML.org/srcML/src" xmlns:cpp="http://www.srcML.org/srcML/cpp" xmlns:pos="http://www.srcML.org/srcML/position" revision="1.0.0" language="C" filename="C:\Users\28673\Desktop\gittest\program_file\code_data\switch_text.c" pos:tabs="8"><cpp:include pos:start="1:1" pos:end="1:18">#<cpp:directive pos:start="1:2" pos:end="1:8">include</cpp:directive> <cpp:file pos:start="1:10" pos:end="1:18">&lt;stdio.h&gt;</cpp:file></cpp:include>
+
+<function pos:start="3:1" pos:end="17:1"><type pos:start="3:1" pos:end="3:4"><name pos:start="3:1" pos:end="3:4">void</name></type> <name pos:start="3:6" pos:end="3:9">main</name> <parameter_list pos:start="3:11" pos:end="3:12">()</parameter_list>
+<block pos:start="4:1" pos:end="17:1">{<block_content pos:start="5:5" pos:end="16:5">
+    <decl_stmt pos:start="5:5" pos:end="5:14"><decl pos:start="5:5" pos:end="5:13"><type pos:start="5:5" pos:end="5:7"><name pos:start="5:5" pos:end="5:7">int</name></type> <name pos:start="5:9" pos:end="5:9">a</name> <init pos:start="5:11" pos:end="5:13">= <expr pos:start="5:13" pos:end="5:13"><literal type="number" pos:start="5:13" pos:end="5:13">0</literal></expr></init></decl>;</decl_stmt>
+    <switch pos:start="6:5" pos:end="16:5">switch<condition pos:start="6:11" pos:end="6:13">(<expr pos:start="6:12" pos:end="6:12"><name pos:start="6:12" pos:end="6:12">a</name></expr>)</condition>
+    <block pos:start="7:5" pos:end="16:5">{<block_content pos:start="8:9" pos:end="15:18">
+        <case pos:start="8:9" pos:end="8:15">case <expr pos:start="8:14" pos:end="8:14"><literal type="number" pos:start="8:14" pos:end="8:14">0</literal></expr>:</case>
+            <expr_stmt pos:start="9:13" pos:end="9:24"><expr pos:start="9:13" pos:end="9:23"><call pos:start="9:13" pos:end="9:23"><name pos:start="9:13" pos:end="9:18">printf</name><argument_list pos:start="9:19" pos:end="9:23">(<argument pos:start="9:20" pos:end="9:22"><expr pos:start="9:20" pos:end="9:22"><literal type="string" pos:start="9:20" pos:end="9:22">"0"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <break pos:start="10:13" pos:end="10:18">break;</break>
+        <case pos:start="11:9" pos:end="11:15">case <expr pos:start="11:14" pos:end="11:14"><literal type="number" pos:start="11:14" pos:end="11:14">1</literal></expr>:</case>
+            <expr_stmt pos:start="12:13" pos:end="12:24"><expr pos:start="12:13" pos:end="12:23"><call pos:start="12:13" pos:end="12:23"><name pos:start="12:13" pos:end="12:18">printf</name><argument_list pos:start="12:19" pos:end="12:23">(<argument pos:start="12:20" pos:end="12:22"><expr pos:start="12:20" pos:end="12:22"><literal type="string" pos:start="12:20" pos:end="12:22">"1"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <break pos:start="13:13" pos:end="13:18">break;</break>
+        <default pos:start="14:9" pos:end="14:16">default:</default>
+            <break pos:start="15:13" pos:end="15:18">break;</break>
+    </block_content>}</block></switch>
+</block_content>}</block></function></unit>
