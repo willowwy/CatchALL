@@ -3,10 +3,10 @@
 # datetime:2022/4/28 16:10
 
 """
-description：开始文件
+description:开始文件
 """
 import os
-from test_transform.py import while_for,switch_if
+from test_transform.py import while_for,switch_if,change_memcpy
 
 from transform_tool.srcml_tool import *
 
@@ -53,6 +53,22 @@ def switch2if():
 
 if __name__ == '__main__':
 
-    while2for()
+    #while2for()
     
-    switch2if()
+    #switch2if()
+
+    # 1.将.c 使用 scrML变化为.xml
+    pre_path = os.path.join(program_path, 'memcpy_text.c')
+    xml_path = os.path.join(transform_file, 'memcpy_text.xml')
+    # 1.将 switch.c 使用 scrML变化为switch.xml
+    srcml_program_xml(pre_path, xml_path)
+
+    input_path = os.path.join(transform_file, 'memcpy_text.xml')
+    output_path = os.path.join(transform_file, 'memcpy2_text.xml')
+
+    #  2.将switch.xml通过规则变换，变化为if.xml
+    change_memcpy.program_transform(input_path, output_path)
+    #   3. 将if.xml通过scrML还原为if.c
+    to_xml_path = os.path.join(transform_file, 'memcpy2_text.xml')
+    to_pre_path = os.path.join(program_path, 'memcpy2_text.c')
+    srcml_xml_program(to_xml_path, to_pre_path)
