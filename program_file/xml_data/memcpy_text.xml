@@ -1,11 +1,126 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<unit xmlns="http://www.srcML.org/srcML/src" xmlns:cpp="http://www.srcML.org/srcML/cpp" xmlns:pos="http://www.srcML.org/srcML/position" revision="1.0.0" language="C" filename="C:\Users\79374\Desktop\gittest\program_file\code_data\memcpy_text.c" pos:tabs="8"><cpp:include pos:start="1:1" pos:end="1:18">#<cpp:directive pos:start="1:2" pos:end="1:8">include</cpp:directive> <cpp:file pos:start="1:10" pos:end="1:18">&lt;stdio.h&gt;</cpp:file></cpp:include>
-<function pos:start="2:1" pos:end="10:1"><type pos:start="2:1" pos:end="2:4"><name pos:start="2:1" pos:end="2:4">void</name></type> <name pos:start="2:6" pos:end="2:9">main</name> <parameter_list pos:start="2:11" pos:end="2:12">()</parameter_list>
-<block pos:start="3:1" pos:end="10:1">{<block_content pos:start="4:4" pos:end="9:17">
-   <decl_stmt pos:start="4:4" pos:end="4:12"><decl pos:start="4:4" pos:end="4:11"><type pos:start="4:4" pos:end="4:6"><name pos:start="4:4" pos:end="4:6">int</name></type> <name pos:start="4:8" pos:end="4:8">x</name> <init pos:start="4:10" pos:end="4:11">=<expr pos:start="4:11" pos:end="4:11"><literal type="number" pos:start="4:11" pos:end="4:11">1</literal></expr></init></decl>;</decl_stmt>
-   <decl_stmt pos:start="5:4" pos:end="5:16"><decl pos:start="5:4" pos:end="5:15"><type pos:start="5:4" pos:end="5:7"><name pos:start="5:4" pos:end="5:7">char</name></type> <name pos:start="5:9" pos:end="5:12"><name pos:start="5:9" pos:end="5:9">a</name><index pos:start="5:10" pos:end="5:12">[<expr pos:start="5:11" pos:end="5:11"><literal type="number" pos:start="5:11" pos:end="5:11">4</literal></expr>]</index></name><init pos:start="5:13" pos:end="5:15">=<expr pos:start="5:14" pos:end="5:15"><literal type="string" pos:start="5:14" pos:end="5:15">""</literal></expr></init></decl>;</decl_stmt>
-   <decl_stmt pos:start="6:4" pos:end="6:19"><decl pos:start="6:4" pos:end="6:18"><type pos:start="6:4" pos:end="6:7"><name pos:start="6:4" pos:end="6:7">char</name></type> <name pos:start="6:9" pos:end="6:12"><name pos:start="6:9" pos:end="6:9">b</name><index pos:start="6:10" pos:end="6:12">[<expr pos:start="6:11" pos:end="6:11"><literal type="number" pos:start="6:11" pos:end="6:11">4</literal></expr>]</index></name><init pos:start="6:13" pos:end="6:18">=<expr pos:start="6:14" pos:end="6:18"><literal type="string" pos:start="6:14" pos:end="6:18">"123"</literal></expr></init></decl>;</decl_stmt>
-   <decl_stmt pos:start="7:4" pos:end="7:21"><decl pos:start="7:4" pos:end="7:20"><type pos:start="7:4" pos:end="7:6"><name pos:start="7:4" pos:end="7:6">int</name></type> <name pos:start="7:8" pos:end="7:8">B</name><init pos:start="7:9" pos:end="7:20">=<expr pos:start="7:10" pos:end="7:20"><sizeof pos:start="7:10" pos:end="7:20">sizeof<argument_list pos:start="7:16" pos:end="7:20">(<argument pos:start="7:17" pos:end="7:19"><expr pos:start="7:17" pos:end="7:19"><name pos:start="7:17" pos:end="7:19">int</name></expr></argument>)</argument_list></sizeof></expr></init></decl>;</decl_stmt>
-   <decl_stmt pos:start="8:4" pos:end="8:19"><decl pos:start="8:4" pos:end="8:18"><type pos:start="8:4" pos:end="8:6"><name pos:start="8:4" pos:end="8:6">int</name></type> <name pos:start="8:8" pos:end="8:8">C</name><init pos:start="8:9" pos:end="8:18">=<expr pos:start="8:10" pos:end="8:18"><call pos:start="8:10" pos:end="8:18"><name pos:start="8:10" pos:end="8:15">strlen</name><argument_list pos:start="8:16" pos:end="8:18">(<argument pos:start="8:17" pos:end="8:17"><expr pos:start="8:17" pos:end="8:17"><name pos:start="8:17" pos:end="8:17">a</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
-   <expr_stmt pos:start="9:4" pos:end="9:17"><expr pos:start="9:4" pos:end="9:16"><call pos:start="9:4" pos:end="9:16"><name pos:start="9:4" pos:end="9:9">memcpy</name><argument_list pos:start="9:10" pos:end="9:16">(<argument pos:start="9:11" pos:end="9:11"><expr pos:start="9:11" pos:end="9:11"><name pos:start="9:11" pos:end="9:11">a</name></expr></argument>,<argument pos:start="9:13" pos:end="9:13"><expr pos:start="9:13" pos:end="9:13"><name pos:start="9:13" pos:end="9:13">b</name></expr></argument>,<argument pos:start="9:15" pos:end="9:15"><expr pos:start="9:15" pos:end="9:15"><name pos:start="9:15" pos:end="9:15">C</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
-</block_content>}</block></function></unit>
+<unit xmlns="http://www.srcML.org/srcML/src"
+   xmlns:cpp="http://www.srcML.org/srcML/cpp"
+   xmlns:pos="http://www.srcML.org/srcML/position" revision="1.0.0" language="C" filename="program_file/pre_data\memcpy_text.c" pos:tabs="8">
+   <cpp:include pos:start="1:1" pos:end="1:18">#      <cpp:directive pos:start="1:2" pos:end="1:8">include</cpp:directive>
+      <cpp:file pos:start="1:10" pos:end="1:18">&lt;stdio.h&gt;</cpp:file>
+   </cpp:include>
+   <function pos:start="2:1" pos:end="10:1">
+      <type pos:start="2:1" pos:end="2:4">
+         <name pos:start="2:1" pos:end="2:4">void</name>
+      </type>
+      <name pos:start="2:6" pos:end="2:9">main</name>
+      <parameter_list pos:start="2:11" pos:end="2:12">()</parameter_list>
+      <block pos:start="3:1" pos:end="10:1">{         <block_content pos:start="4:4" pos:end="9:17">
+            <decl_stmt pos:start="4:4" pos:end="4:12">
+               <decl pos:start="4:4" pos:end="4:11">
+                  <type pos:start="4:4" pos:end="4:6">
+                     <name pos:start="4:4" pos:end="4:6">int</name>
+                  </type>
+                  <name pos:start="4:8" pos:end="4:8">x</name>
+                  <init pos:start="4:10" pos:end="4:11">=                     <expr pos:start="4:11" pos:end="4:11">
+                        <literal type="number" pos:start="4:11" pos:end="4:11">1</literal>
+                     </expr>
+                  </init>
+               </decl>;
+            </decl_stmt>
+            <decl_stmt pos:start="5:4" pos:end="5:16">
+               <decl pos:start="5:4" pos:end="5:15">
+                  <type pos:start="5:4" pos:end="5:7">
+                     <name pos:start="5:4" pos:end="5:7">char</name>
+                  </type>
+                  <name pos:start="5:9" pos:end="5:12">
+                     <name pos:start="5:9" pos:end="5:9">a</name>
+                     <index pos:start="5:10" pos:end="5:12">[                        
+                        <expr pos:start="5:11" pos:end="5:11">
+                           <literal type="number" pos:start="5:11" pos:end="5:11">4</literal>
+                        </expr>]
+                     </index>
+                  </name>
+                  <init pos:start="5:13" pos:end="5:15">=                     <expr pos:start="5:14" pos:end="5:15">
+                        <literal type="string" pos:start="5:14" pos:end="5:15">""</literal>
+                     </expr>
+                  </init>
+               </decl>;
+            </decl_stmt>
+            <decl_stmt pos:start="6:4" pos:end="6:19">
+               <decl pos:start="6:4" pos:end="6:18">
+                  <type pos:start="6:4" pos:end="6:7">
+                     <name pos:start="6:4" pos:end="6:7">char</name>
+                  </type>
+                  <name pos:start="6:9" pos:end="6:12">
+                     <name pos:start="6:9" pos:end="6:9">b</name>
+                     <index pos:start="6:10" pos:end="6:12">[                        <expr pos:start="6:11" pos:end="6:11">
+                           <literal type="number" pos:start="6:11" pos:end="6:11">4</literal>
+                        </expr>]
+                     </index>
+                  </name>
+                  <init pos:start="6:13" pos:end="6:18">=                     <expr pos:start="6:14" pos:end="6:18">
+                        <literal type="string" pos:start="6:14" pos:end="6:18">"123"</literal>
+                     </expr>
+                  </init>
+               </decl>;
+            </decl_stmt>
+            <decl_stmt pos:start="7:4" pos:end="7:21">
+               <decl pos:start="7:4" pos:end="7:20">
+                  <type pos:start="7:4" pos:end="7:6">
+                     <name pos:start="7:4" pos:end="7:6">int</name>
+                  </type>
+                  <name pos:start="7:8" pos:end="7:8">B</name>
+                  <init pos:start="7:9" pos:end="7:20">=                     <expr pos:start="7:10" pos:end="7:20">
+                        <sizeof pos:start="7:10" pos:end="7:20">sizeof<argument_list pos:start="7:16" pos:end="7:20">(                           <argument pos:start="7:17" pos:end="7:19">
+                              <expr pos:start="7:17" pos:end="7:19">
+                                 <name pos:start="7:17" pos:end="7:19">int</name>
+                              </expr>
+                           </argument>)
+                        </argument_list>
+                     </sizeof>
+                  </expr>
+               </init>
+            </decl>;
+         </decl_stmt>
+         <decl_stmt pos:start="8:4" pos:end="8:19">
+            <decl pos:start="8:4" pos:end="8:18">
+               <type pos:start="8:4" pos:end="8:6">
+                  <name pos:start="8:4" pos:end="8:6">int</name>
+               </type>
+               <name pos:start="8:8" pos:end="8:8">C</name>
+               <init pos:start="8:9" pos:end="8:18">=                  <expr pos:start="8:10" pos:end="8:18">
+                     <call pos:start="8:10" pos:end="8:18">
+                        <name pos:start="8:10" pos:end="8:15">strlen</name>
+                        <argument_list pos:start="8:16" pos:end="8:18">(                           <argument pos:start="8:17" pos:end="8:17">
+                              <expr pos:start="8:17" pos:end="8:17">
+                                 <name pos:start="8:17" pos:end="8:17">a</name>
+                              </expr>
+                           </argument>)
+                        </argument_list>
+                     </call>
+                  </expr>
+               </init>
+            </decl>;
+         </decl_stmt>
+         <expr_stmt pos:start="9:4" pos:end="9:17">
+            <expr pos:start="9:4" pos:end="9:16">
+               <call pos:start="9:4" pos:end="9:16">
+                  <name pos:start="9:4" pos:end="9:9">memcpy</name>
+                  <argument_list pos:start="9:10" pos:end="9:16">(                     <argument pos:start="9:11" pos:end="9:11">
+                        <expr pos:start="9:11" pos:end="9:11">
+                           <name pos:start="9:11" pos:end="9:11">a</name>
+                        </expr>
+                     </argument>,                     <argument pos:start="9:13" pos:end="9:13">
+                        <expr pos:start="9:13" pos:end="9:13">
+                           <name pos:start="9:13" pos:end="9:13">b</name>
+                        </expr>
+                     </argument>,                     <argument pos:start="9:15" pos:end="9:15">
+                        <expr pos:start="9:15" pos:end="9:15">
+                           <name pos:start="9:15" pos:end="9:15">C</name>
+                        </expr>
+                     </argument>)
+                  </argument_list>
+               </call>
+            </expr>;
+         </expr_stmt>
+      </block_content>}
+   </block>
+</function>
+</unit>
