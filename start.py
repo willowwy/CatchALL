@@ -41,7 +41,7 @@ if __name__ == '__main__':
         cflag=0
         #cflag=change_define.program_transform(input_path, output_path)
         #change_memcpy.program_transform(input_path, output_path)
-        if_spilt.program_transform(input_path, output_path)
+        cflag=change_if.program_transform(input_path, output_path)
         
         #   3. 将.xml通过scrML还原为if.c
         to_xml_path = os.path.join(transform_file, file2_xml)
@@ -55,8 +55,9 @@ if __name__ == '__main__':
 
             output_path = os.path.join(transform_file, file2_xml)
 
-            cflag=change_define.program_transform(output_path, output_path)
-            #change_memcpy.program_transform(input_path, output_path)
+            #cflag=change_define.program_transform(output_path, output_path)
+            #change_memcpy.program_transform(output_path, output_path)
+            cflag=change_if.program_transform(output_path, output_path)
             
             to_xml_path = os.path.join(transform_file, file2_xml)
             to_pre_path = os.path.join(o_program_path, file2)
