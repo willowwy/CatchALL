@@ -21,7 +21,7 @@ sys.path.append(cur_path)
 
 flag = True  # indicates whether the shell command runs successfully
 program_style_flag = 'c'  # program's style c++/java/c
-srcml_path = 'D:\\APPS\\srcML\\srcml.exe'
+srcml_path = '.\\srcML\\srcml.exe'
 
 
 # express shell command
@@ -31,7 +31,7 @@ def cmd(command):
     flag = True
     # https://www.runoob.com/w3cnote/python3-subprocess.html
     subp = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="utf-8")
-    subp.wait(10)
+    subp.wait(50)
     if subp.poll() == 0:
         flag = True
     else:

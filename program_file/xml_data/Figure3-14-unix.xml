@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.srcML.org/srcML/src" xmlns:cpp="http://www.srcML.org/srcML/cpp" xmlns:pos="http://www.srcML.org/srcML/position" revision="1.0.0" language="C" filename="program_file/pre_data\Figure3-14-unix.c" pos:tabs="8"><comment type="block" pos:start="1:1" pos:end="16:3">/*
+ *
+ * Copyright (c) 2005 Carnegie Mellon University.
+ * All rights reserved.
+ * Permission to use this software and its documentation for any purpose is hereby granted,
+ * provided that the above copyright notice appear and that both that copyright notice and
+ * this permission notice appear in supporting documentation, and that the name of CMU not
+ * be used in advertising or publicity pertaining to distribution of the software without
+ * specific, written prior permission.
+ *
+ * CMU DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES
+ * OF MERCHANTABILITY AND FITNESS, IN NO EVENT SHALL CMU BE LIABLE FOR ANY SPECIAL, INDIRECT OR
+ * CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
+ * WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, RISING OUT OF OR IN
+ * CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ */</comment>
+
+<cpp:include pos:start="18:1" pos:end="18:19">#<cpp:directive pos:start="18:2" pos:end="18:8">include</cpp:directive> <cpp:file pos:start="18:10" pos:end="18:19">&lt;setjmp.h&gt;</cpp:file></cpp:include>
+<cpp:include pos:start="19:1" pos:end="19:18">#<cpp:directive pos:start="19:2" pos:end="19:8">include</cpp:directive> <cpp:file pos:start="19:10" pos:end="19:18">&lt;stdio.h&gt;</cpp:file></cpp:include>
+
+<decl_stmt pos:start="21:1" pos:end="21:12"><decl pos:start="21:1" pos:end="21:11"><type pos:start="21:1" pos:end="21:7"><name pos:start="21:1" pos:end="21:7">jmp_buf</name></type> <name pos:start="21:9" pos:end="21:11">buf</name></decl>;</decl_stmt>
+<function_decl pos:start="22:1" pos:end="22:14"><type pos:start="22:1" pos:end="22:4"><name pos:start="22:1" pos:end="22:4">void</name></type> <name pos:start="22:6" pos:end="22:6">g</name><parameter_list pos:start="22:7" pos:end="22:13">(<parameter pos:start="22:8" pos:end="22:12"><decl pos:start="22:8" pos:end="22:12"><type pos:start="22:8" pos:end="22:10"><name pos:start="22:8" pos:end="22:10">int</name></type> <name pos:start="22:12" pos:end="22:12">n</name></decl></parameter>)</parameter_list>;</function_decl>
+<function_decl pos:start="23:1" pos:end="23:14"><type pos:start="23:1" pos:end="23:4"><name pos:start="23:1" pos:end="23:4">void</name></type> <name pos:start="23:6" pos:end="23:6">h</name><parameter_list pos:start="23:7" pos:end="23:13">(<parameter pos:start="23:8" pos:end="23:12"><decl pos:start="23:8" pos:end="23:12"><type pos:start="23:8" pos:end="23:10"><name pos:start="23:8" pos:end="23:10">int</name></type> <name pos:start="23:12" pos:end="23:12">n</name></decl></parameter>)</parameter_list>;</function_decl>
+<decl_stmt pos:start="24:1" pos:end="24:10"><decl pos:start="24:1" pos:end="24:9"><type pos:start="24:1" pos:end="24:3"><name pos:start="24:1" pos:end="24:3">int</name></type> <name pos:start="24:5" pos:end="24:5">n</name> <init pos:start="24:7" pos:end="24:9">= <expr pos:start="24:9" pos:end="24:9"><literal type="number" pos:start="24:9" pos:end="24:9">6</literal></expr></init></decl>;</decl_stmt>
+
+<function pos:start="26:1" pos:end="32:1"><type pos:start="26:1" pos:end="26:4"><name pos:start="26:1" pos:end="26:4">void</name></type> <name pos:start="26:6" pos:end="26:6">f</name><parameter_list pos:start="26:7" pos:end="26:12">(<parameter pos:start="26:8" pos:end="26:11"><decl pos:start="26:8" pos:end="26:11"><type pos:start="26:8" pos:end="26:11"><name pos:start="26:8" pos:end="26:11">void</name></type></decl></parameter>)</parameter_list>
+<block pos:start="27:1" pos:end="32:1">{<block_content pos:start="28:5" pos:end="31:9">
+    <decl_stmt pos:start="28:5" pos:end="28:18"><decl pos:start="28:5" pos:end="28:17"><type pos:start="28:5" pos:end="28:7"><name pos:start="28:5" pos:end="28:7">int</name></type> <name pos:start="28:9" pos:end="28:17"><name pos:start="28:9" pos:end="28:13">array</name><index pos:start="28:14" pos:end="28:17">[<expr pos:start="28:15" pos:end="28:16"><literal type="number" pos:start="28:15" pos:end="28:16">10</literal></expr>]</index></name></decl>;</decl_stmt>
+    <expr_stmt pos:start="29:5" pos:end="29:23"><expr pos:start="29:5" pos:end="29:22"><call pos:start="29:5" pos:end="29:22"><name pos:start="29:5" pos:end="29:9">scanf</name><argument_list pos:start="29:10" pos:end="29:22">(<argument pos:start="29:11" pos:end="29:14"><expr pos:start="29:11" pos:end="29:14"><literal type="string" pos:start="29:11" pos:end="29:14">"%s"</literal></expr></argument>, <argument pos:start="29:17" pos:end="29:21"><expr pos:start="29:17" pos:end="29:21"><name pos:start="29:17" pos:end="29:21">array</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    <expr_stmt pos:start="30:5" pos:end="30:16"><expr pos:start="30:5" pos:end="30:15"><call pos:start="30:5" pos:end="30:15"><name pos:start="30:5" pos:end="30:10">setjmp</name><argument_list pos:start="30:11" pos:end="30:15">(<argument pos:start="30:12" pos:end="30:14"><expr pos:start="30:12" pos:end="30:14"><name pos:start="30:12" pos:end="30:14">buf</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    <expr_stmt pos:start="31:5" pos:end="31:9"><expr pos:start="31:5" pos:end="31:8"><call pos:start="31:5" pos:end="31:8"><name pos:start="31:5" pos:end="31:5">g</name><argument_list pos:start="31:6" pos:end="31:8">(<argument pos:start="31:7" pos:end="31:7"><expr pos:start="31:7" pos:end="31:7"><name pos:start="31:7" pos:end="31:7">n</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+</block_content>}</block></function>
+
+<function pos:start="34:1" pos:end="37:1"><type pos:start="34:1" pos:end="34:4"><name pos:start="34:1" pos:end="34:4">void</name></type> <name pos:start="34:6" pos:end="34:6">g</name><parameter_list pos:start="34:7" pos:end="34:13">(<parameter pos:start="34:8" pos:end="34:12"><decl pos:start="34:8" pos:end="34:12"><type pos:start="34:8" pos:end="34:10"><name pos:start="34:8" pos:end="34:10">int</name></type> <name pos:start="34:12" pos:end="34:12">n</name></decl></parameter>)</parameter_list>
+<block pos:start="35:1" pos:end="37:1">{<block_content pos:start="36:5" pos:end="36:9">
+    <expr_stmt pos:start="36:5" pos:end="36:9"><expr pos:start="36:5" pos:end="36:8"><call pos:start="36:5" pos:end="36:8"><name pos:start="36:5" pos:end="36:5">h</name><argument_list pos:start="36:6" pos:end="36:8">(<argument pos:start="36:7" pos:end="36:7"><expr pos:start="36:7" pos:end="36:7"><name pos:start="36:7" pos:end="36:7">n</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+</block_content>}</block></function>
+<function pos:start="38:1" pos:end="42:1"><type pos:start="38:1" pos:end="38:4"><name pos:start="38:1" pos:end="38:4">void</name></type> <name pos:start="38:6" pos:end="38:6">h</name><parameter_list pos:start="38:7" pos:end="38:13">(<parameter pos:start="38:8" pos:end="38:12"><decl pos:start="38:8" pos:end="38:12"><type pos:start="38:8" pos:end="38:10"><name pos:start="38:8" pos:end="38:10">int</name></type> <name pos:start="38:12" pos:end="38:12">x</name></decl></parameter>)</parameter_list>
+<block pos:start="39:1" pos:end="42:1">{<block_content pos:start="40:5" pos:end="41:20">
+    <expr_stmt pos:start="40:5" pos:end="40:8"><expr pos:start="40:5" pos:end="40:7"><name pos:start="40:5" pos:end="40:5">x</name><operator pos:start="40:6" pos:end="40:6">=</operator><literal type="number" pos:start="40:7" pos:end="40:7">1</literal></expr>;</expr_stmt>
+    <expr_stmt pos:start="41:5" pos:end="41:20"><expr pos:start="41:5" pos:end="41:19"><call pos:start="41:5" pos:end="41:19"><name pos:start="41:5" pos:end="41:11">longjmp</name><argument_list pos:start="41:12" pos:end="41:19">(<argument pos:start="41:13" pos:end="41:15"><expr pos:start="41:13" pos:end="41:15"><name pos:start="41:13" pos:end="41:15">buf</name></expr></argument>, <argument pos:start="41:18" pos:end="41:18"><expr pos:start="41:18" pos:end="41:18"><literal type="number" pos:start="41:18" pos:end="41:18">2</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+</block_content>}</block></function>
+
+
+
+<function pos:start="46:1" pos:end="50:1"><type pos:start="46:1" pos:end="46:3"><name pos:start="46:1" pos:end="46:3">int</name></type> <name pos:start="46:5" pos:end="46:8">main</name><parameter_list pos:start="46:9" pos:end="46:10">()</parameter_list>
+<block pos:start="47:1" pos:end="50:1">{<block_content pos:start="48:5" pos:end="49:13">
+    <expr_stmt pos:start="48:5" pos:end="48:8"><expr pos:start="48:5" pos:end="48:7"><call pos:start="48:5" pos:end="48:7"><name pos:start="48:5" pos:end="48:5">f</name><argument_list pos:start="48:6" pos:end="48:7">()</argument_list></call></expr>;</expr_stmt>
+    <return pos:start="49:5" pos:end="49:13">return <expr pos:start="49:12" pos:end="49:12"><literal type="number" pos:start="49:12" pos:end="49:12">0</literal></expr>;</return>
+</block_content>}</block></function>
+</unit>

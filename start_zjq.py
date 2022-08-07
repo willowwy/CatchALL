@@ -71,14 +71,14 @@ if __name__ == '__main__':
         # 1.将 switch.c 使用 scrML变化为switch.xml
         srcml_program_xml(pre_path, xml_path)
 
-        input_path = os.path.join(transform_file, file_xml)
-        output_path = os.path.join(transform_file, file2_xml)
+        # input_path = os.path.join(transform_file, file_xml)
+        # output_path = os.path.join(transform_file, file2_xml)
 
-        #  2.将.xml通过规则变换，变化为.xml
-        change_define.program_transform(input_path, output_path)
-        change_memcpy.program_transform(input_path, output_path)
+        # #  2.将.xml通过规则变换，变化为.xml
+        # change_define.program_transform(input_path, output_path)
+        # change_memcpy.program_transform(input_path, output_path)
         
-        #   3. 将.xml通过scrML还原为if.c
-        to_xml_path = os.path.join(transform_file, file2_xml)
-        to_pre_path = os.path.join(program_path, file2)
-        srcml_xml_program(to_xml_path, to_pre_path)
+        # #   3. 将.xml通过scrML还原为if.c
+        # to_xml_path = os.path.join(transform_file, file2_xml)
+        # to_pre_path = os.path.join(program_path, file2)
+        # srcml_xml_program(to_xml_path, to_pre_path)
