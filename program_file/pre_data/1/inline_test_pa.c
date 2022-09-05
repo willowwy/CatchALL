@@ -1,7 +1,12 @@
+int f(m,n){
+    ;
+}
 int main ()
 {
+    int (*ff)(int); 
     int a=1;
     int b=2;
-    f(a,b);
+    ff=f;
+    ff(a,b);
     return 0;
 }

@@ -25,8 +25,8 @@ def findfile(pathName):
         for f in fileList:
             if f == "$RECYCLE.BIN" or f == "System Volume Information":
                 continue
-            fpath = os.path.join(pathName, f)
-            if os.path.isdir(fpath):
+            fpath = os.path.join(pathName, f) #整合路径
+            if os.path.isdir(fpath): #判断是否是文件夹
                 findfile(fpath)
             else:
                 changefile(f,fpath)
@@ -52,7 +52,7 @@ def changefile(file,pre_path):
         #cflag=change_if.program_transform(input_path, output_path)
         cflag=change_inline.program_transform(input_path, output_path)
         
-        #   3. 将.xml通过scrML还原为if.c
+        #   3. 将.xml通过scrML还原为if.c                #相应文件路径
         to_xml_path = os.path.join(transform_file, file2_xml)
         to_pre_path = os.path.join(o_program_path, file2)
         srcml_xml_program(to_xml_path, to_pre_path)
