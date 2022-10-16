@@ -1,25 +1,30 @@
-# srcML_change_word
+# CatchALL
 
 ## 介绍
 
-代码变换
+该工具在静态漏洞检测软件误报漏报率高的问题上，摒弃了对检测工具自身进行更改的传统方法，而是对代码进行等价变换，使代码在不改变原义的情况下，朝着易于漏洞检测的方向进行变换，使其适应众多漏洞检测工具，从而显著降低检测工具的漏报率与误报率。
 
 ## 基本流程
-
-以 for2while 为例
-
-1.将 for.c 使用 scrML变化为for.xml
-
-2.将for.xml通过规则变换，变化为while.xml
-
-3.将while.xml通过scrML还原为while.c
+### 1.安装lxml库
+    
+    教程：https://blog.csdn.net/qq_41404557/article/details/122567976
 
 
-## 第一阶段
-
-单属性变换：只变换一个文件中的一个属性，for ->while
+### 2.将待变换的文件放在program_file/pre_data目录下
 
 
-## 第二阶段
 
-多属性变换：多个属性组合，for->while + 指针->数组
+### 3.运行
+#### 法一：在dist目录下双击start.exe即可进行运行程序，运行成功会成功回显
+
+```
+Change success！
+请按任意键继续...
+```
+#### 法二：点击运行start.py,自行生成可执行文件
+    
+
+
+### 4.产生结果
+#### 生成的变换后代码文件在program_file/output_data目录下自动生成
+
