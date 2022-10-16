@@ -1,6 +1,6 @@
 """
 
-16：Loop Structure
+16:Loop Structure
 16.1  while structure -> for structure
 
 """

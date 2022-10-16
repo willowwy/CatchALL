@@ -143,7 +143,7 @@ def get_number(xml_path):
 
 
 # the program's input port
-def program_transform(program_path):
+def program_transform(program_path,output_path):
     e = init_parse(program_path)
     trans_tree(e)
-    save_tree_to_file(doc, './style/style.xml')
+    save_tree_to_file(doc, output_path)
