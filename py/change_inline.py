@@ -2,6 +2,7 @@ from argparse import Namespace
 from typing import Text
 from lxml import etree
 from lxml import html
+
 import os
 from transform_tool.srcml_tool import *
 ns = {'x': 'http://www.srcML.org/srcML/src',
@@ -9,15 +10,15 @@ ns = {'x': 'http://www.srcML.org/srcML/src',
 	'pos': 'http://www.srcML.org/srcML/position'}
 
 # author program to be transformed
-program_path = './program_file/pre_data'
+program_path = './program_file/pre_data/'
 # author transformed program
-o_program_path = './program_file/output_data'
+o_program_path = './program_file/output_data/'
 # save path after transformation
-transform_file = './program_file/xml_data'
+transform_file = './program_file/xml_data/'
 # path of srcML.exe
 srcml_path = './srcML/srcml.exe'
 
-
+globalflag=0
 def findfile(fname,flag,expr_xml,pathName):
     findflag=0
     if os.path.exists(pathName):
@@ -58,6 +59,7 @@ def findfuc(input_path,fname,flag,expr_xml):
             if fname==xname:
                 findflag=1
                 finline=fuc[3].xpath('string(.)')
+                print("finline:",finline)
                 i=1
                 for para in fuc[2].xpath('./x:parameter',namespaces=ns):
                     index=para[0].find('./x:name',namespaces=ns)
@@ -93,6 +95,7 @@ def changefuc(file):
     
 
 def program_transform(input_path, output_path):
+    global globalflag
     globals()['cflag']=0
     tree = etree.parse(input_path)
     rootT = tree.getroot()
@@ -105,23 +108,57 @@ def program_transform(input_path, output_path):
                         index=call_xml[1].find('./x:argument',namespaces=ns)
                         if index is not None:#存在参数调用
                             fname=call_xml[0].xpath('string(.)')
+                            #print(fname)
+                            #记录所调用的函数为下一步转化做准备
                             i=1
                             for argu in call_xml[1].xpath('./x:argument',namespaces=ns):
                                 if argu[0][0].tag=='{http://www.srcML.org/srcML/src}name' or argu[0][0].tag=='{http://www.srcML.org/srcML/src}literal':
+                                    #函数实参
                                     globals()['argu'+str(i)]=argu[0][0].text
+
                                 i=i+1
                             findflag=0
                             for fuc in rootT.xpath('//x:function', namespaces=ns):
                                 xname=fuc[1].xpath('string(.)')
+
                                 if fname==xname:
                                     findflag=1
-                                    finline=fuc[3].xpath('string(.)')
+                                    lines=[]
+                                    varname=[]
+                                    if len(fuc.xpath('./x:block',namespaces=ns)):
+                                        blockc=fuc.xpath('./x:block',namespaces=ns)[0]
+                                        tmp = blockc.xpath('string(.)')
+                                    else:
+                                        continue
+                                    tmp=blockc.xpath('string(.)')
+                                    #print(tmp)
+                                    for block in fuc.xpath('./x:block/x:block_content', namespaces=ns):
+                                        #print("block",block.xpath('string(.)'))
+                                        for defineline in block.xpath('./x:decl_stmt', namespaces=ns):
+                                            lines.append(defineline.xpath('string(.)'))
+                                            for vname in defineline.xpath('./x:decl/x:name', namespaces=ns):
+                                                varname.append(vname.xpath('string(.)'))
+                                            block.remove(defineline)
+                                    finline = fuc[3].xpath('string(.)')
+                                    fuc.remove(blockc)
+                                    newnode = etree.SubElement(fuc, 'newnode')
+                                    newnode.text = tmp
+                                    #print(newnode.text)
+
+                                    #print(lines)
+                                    #print(varname)
+
+                                    #print(fuc[3].text)
+                                    #print(finline)
+
                                     i=1
                                     for para in fuc[2].xpath('./x:parameter',namespaces=ns):                                
                                         index=para[0].find('./x:name',namespaces=ns)
+
                                         if index is not None:#存在参数调用                        
                                             if para[0][1].tag=='{http://www.srcML.org/srcML/src}name':
                                                 globals()['para'+str(i)]=para[0][1].xpath('string(.)')
+
                                                 i=i+1
 
                                     for op in range(1,i):
@@ -129,12 +166,45 @@ def program_transform(input_path, output_path):
                                         b=globals()['argu'+str(op)]
                                         c=finline
                                         c=c.replace(a,b or "")
-                                        finline=c
+                                        finline = c
+                                    #局部变量替换
+                                    #print(varname)
 
-                                    expr_xml.remove(expr_xml[0])
+                                    if len(varname)>0:
+                                        globalflag=globalflag+1
+                                        for var in varname:
+                                            var1=xname+"_"+str(globalflag)+"_"+var
+                                            c=finline
+                                            c=c.replace(var,var1)
+                                            finline=c
+
+                                    c = c.replace("{", "(")
+                                    c = c.replace("}", ")")
+                                    c = c.replace(";", ",")
+                                    c = c.replace("return", "")
+                                    tmp=c.rindex(",")
+                                    c=c[:tmp]+c[tmp+1:]
+                                    finline=c
+                                    print(call_xml.xpath('string(.)'))
+                                    expr_xml.remove(call_xml)
+                                    #替换
                                     newnode=etree.SubElement(expr_xml,'newnode')
                                     newnode.text=finline
                                     globals()['cflag']=1
+
+
+                                    tmp2=''
+                                    for i in lines:
+                                        tmp2=tmp2+i+'\n'
+                                    #print(tmp1)
+                                    #print(str(expr_xml.text))
+                                    expr_xml.text=tmp2
+                                    if len(varname)>0:
+                                        for var in varname:
+                                            var1=xname+"_"+str(globalflag)+"_"+var
+                                            c=expr_xml.text.replace(var,var1)
+                                            expr_xml.text=c
+
                                     break
                             if findflag==0:
                                     findfile(fname,1,expr_xml,program_path)
