@@ -107,6 +107,10 @@ def program_transform(input_path, output_path):
                     for call_xml in expr_xml.xpath('x:call', namespaces=ns):
                         index=call_xml[1].find('./x:argument',namespaces=ns)
                         if index is not None:#存在参数调用
+                            name = expr_xml.xpath('x:name', namespaces=ns)
+                            if len(name):
+                                print(name)
+                                tmp_final = name[0].xpath('string(.)') + "="
                             fname=call_xml[0].xpath('string(.)')
                             #print(fname)
                             #记录所调用的函数为下一步转化做准备
@@ -131,15 +135,16 @@ def program_transform(input_path, output_path):
                                     else:
                                         continue
                                     tmp=blockc.xpath('string(.)')
-                                    #print(tmp)
+                                    #print("tmp: ",tmp)
                                     for block in fuc.xpath('./x:block/x:block_content', namespaces=ns):
-                                        #print("block",block.xpath('string(.)'))
+                                        print("block",block.xpath('string(.)'))
                                         for defineline in block.xpath('./x:decl_stmt', namespaces=ns):
                                             lines.append(defineline.xpath('string(.)'))
                                             for vname in defineline.xpath('./x:decl/x:name', namespaces=ns):
                                                 varname.append(vname.xpath('string(.)'))
-                                            block.remove(defineline)
+                                            # block.remove(defineline)
                                     finline = fuc[3].xpath('string(.)')
+
                                     fuc.remove(blockc)
                                     newnode = etree.SubElement(fuc, 'newnode')
                                     newnode.text = tmp
@@ -178,17 +183,17 @@ def program_transform(input_path, output_path):
                                             c=c.replace(var,var1)
                                             finline=c
 
-                                    c = c.replace("{", "(")
-                                    c = c.replace("}", ")")
-                                    c = c.replace(";", ",")
-                                    c = c.replace("return", "")
-                                    tmp=c.rindex(",")
-                                    c=c[:tmp]+c[tmp+1:]
+                                    # c = c.replace("{", "(")
+                                    # c = c.replace("}", ")")
+                                    # c = c.replace(";", ",")
+                                    c = c.replace("return", tmp_final)
+                                    # tmp=c.rindex(",")
+                                    # c=c[:tmp]+c[tmp+1:]
                                     finline=c
-                                    print(call_xml.xpath('string(.)'))
-                                    expr_xml.remove(call_xml)
+                                    print(expr_xml.xpath('string(.)'))
+                                    expr_stmt_xml.remove(expr_xml)
                                     #替换
-                                    newnode=etree.SubElement(expr_xml,'newnode')
+                                    newnode=etree.SubElement(expr_stmt_xml,'newnode')
                                     newnode.text=finline
                                     globals()['cflag']=1
 
