@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-# author:zjq
-# datetime:2022/4/28 16:10
 
 """
 description:开始文件
@@ -81,7 +79,7 @@ def changefile(file,pre_path):
             print(to_pre_path)
             srcml_xml_program(to_xml_path, to_pre_path)
             
-    print("Success!!")
+    print("Success!!\n\n")
 if __name__ == '__main__':
     
     dirs=os.listdir(program_path)
