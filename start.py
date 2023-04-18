@@ -81,6 +81,7 @@ def changefile(file,pre_path):
             print(to_pre_path)
             srcml_xml_program(to_xml_path, to_pre_path)
             
+    print("Success!!")
 if __name__ == '__main__':
     
     dirs=os.listdir(program_path)
