@@ -21,7 +21,7 @@
 Change success！
 请按任意键继续...
 ```
-#### 法二：点击运行start.py,自行生成可执行文件
+#### 法二：运行start.py,自行生成转换后文件output_data
     
 
 
